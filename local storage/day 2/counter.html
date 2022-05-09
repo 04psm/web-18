@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+
+    <style>
+        #container{
+            background-color: orangered;
+            border-radius: 10px;
+            width: 45%;
+            height: 200px;
+            margin: auto;
+            text-align: center;
+           
+        }
+        #increase{
+            padding: 8px 14px 8px 14px;
+            margin-bottom: 28px;
+            border-radius: 6px;
+            border: none;
+            background-color: rgb(0, 175, 245);
+            color: white;
+            font-weight: 600;
+            margin-right: 25px;
+        }
+    #decrease{
+            margin-bottom: 28px;
+            border-radius: 6px;
+            border: none;
+            background-color: rgb(201, 131, 1);
+            color: white;
+            padding: 8px 14px 8px 14px;
+            font-weight: 600;
+        }
+        .shift{
+            margin-top: 220px;
+        }
+    </style>
+</head>
+<body>
+   <div id="container">
+       <div class="shift">
+        <h1 id="count">count</h1>
+    <button id="increase">Increase</button>
+    <button id="decrease">Decrease</button>
+       </div>
+    
+   </div>
+</body>
+</html>
+
+<script>
+    var count=localStorage.getItem("counter")||0;
+document.querySelector("h1").innerText=count;
+
+document.querySelector("#decrease").addEventListener("click",decreaseFun);
+function decreaseFun(){
+    count--;
+    document.querySelector("h1").innerText=count;
+    localStorage.setItem("counter",count);
+}
+
+document.querySelector("#increase").addEventListener("click",increaseFun);
+function increaseFun(){
+    count++;
+    document.querySelector("h1").innerText=count;
+    localStorage.setItem("counter",count);
+}
+</script>

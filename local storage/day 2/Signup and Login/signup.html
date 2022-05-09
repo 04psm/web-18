@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <h1>Sign-Up</h1>
+        <form>
+            <input id="email" type="text" placeholder="Enter your email">
+            <input id="number" type="number"  placeholder="Enter your phone number">
+            <input id="password" type="text" placeholder="Enter your password">
+            <input id="submitBtn" type="submit" value="Sign-Up">
+        </form>
+        <h2><a href="login.html">log in</a></h2>
+    </div>
+</body>
+
+<script>
+    var form=document.querySelector("form");
+    form.addEventListener("submit", function(event){
+    event.preventDefault();
+    var userData={
+        email:form.email.value,
+        number:form.number.value,
+        password:form.password.value,
+    }
+    localStorage.setItem("userData",JSON.stringify(userData));
+    })
+    </script>
+</html>
+
